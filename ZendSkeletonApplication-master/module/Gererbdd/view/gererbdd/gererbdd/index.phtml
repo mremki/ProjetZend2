@@ -1,0 +1,30 @@
+ <?php
+ // module/Gererbdd/view/gererbdd/gererbdd/index.phtml:
+
+ $title = 'My gererbdd';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+     <a href="<?php echo $this->url('gererbdd', array('action'=>'add'));?>">Add new bdd</a>
+ </p>
+
+ <table class="table">
+ <tr>
+     <th>Prenom</th>
+     <th>Nom</th>
+     <th>&nbsp;</th>
+ </tr>
+ <?php foreach ($gererbdds as $gererbdd) : ?>
+ <tr>
+     <td><?php echo $this->escapeHtml($gererbdd->prenom);?></td>
+     <td><?php echo $this->escapeHtml($gererbdd->nom);?></td>
+     <td>
+         <a href="<?php echo $this->url('gererbdd',
+             array('action'=>'edit', 'id' => $gererbdd->id));?>">Edit</a>
+         <a href="<?php echo $this->url('gererbdd',
+             array('action'=>'delete', 'id' => $gererbdd->id));?>">Delete</a>
+     </td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

@@ -1,0 +1,25 @@
+ <?php
+ // module/Gererbdd/view/gererbdd/gererbdd/delete.phtml:
+
+ $title = 'Supprimer une personne';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+
+ <p>Vous &ecirc;tes sur de vouloir supprimer 
+     '<?php echo $this->escapeHtml($gererbdd->prenom); ?> <?php echo $this->escapeHtml($gererbdd->nom); ?>' de la base ?
+ </p>
+ <?php
+ $url = $this->url('gererbdd', array(
+     'action' => 'delete',
+     'id'     => $this->id,
+ ));
+ ?>
+ <form action="<?php echo $url; ?>" method="post">
+ <div>
+     <input type="hidden" name="id" value="<?php echo (int) $gererbdd->id; ?>" />
+     <input type="submit" name="del" value="Oui" />
+     <input type="submit" name="del" value="Non" />
+ </div>
+ </form>
+ 
